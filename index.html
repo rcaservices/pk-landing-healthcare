@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HIPAA Policy Management for Healthcare Practices | PolicyKeeper.ai</title>
-  <meta name="description" content="AI-powered HIPAA policy management for small healthcare practices. Upload your compliance policies, let your team ask questions, get instant answers with source citations.">
+  <title>Stop Being Your Staff's Policy Helpdesk | PolicyKeeper for Healthcare</title>
+  <meta name="description" content="A new nurse asks why her schedule shows mids. Two CNAs argue about HIPAA at the desk. PolicyKeeper reads your handbook and answers your staff over text — from your actual policy, in two seconds, before the question becomes a quit or an OCR call.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="HIPAA Policy Answers in Seconds">
-  <meta property="og:description" content="Stop being the middleman between your staff and your policies. Upload once, answer questions forever.">
+  <meta property="og:title" content="Stop being your staff's policy helpdesk.">
+  <meta property="og:description" content="PolicyKeeper reads your healthcare handbook and answers your staff over text — in your facility's actual policy.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://healthcare.policykeeper.ai">
 
@@ -45,7 +45,7 @@
     /* Reset */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* Variables — clinical healthcare palette */
+    /* Variables — healthcare palette: clinical blue */
     :root {
       --color-text: #1a1f36;
       --color-text-secondary: #3d4663;
@@ -59,14 +59,14 @@
       --color-border: #d8dfe8;
       --color-green: #059669;
       --color-green-light: #d1fae5;
+      --color-red: #ef4444;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-heading: 'Merriweather', Georgia, serif;
+      --font-mono: 'SFMono-Regular', Menlo, Consolas, monospace;
       --max-width: 780px;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--font-body);
@@ -77,60 +77,45 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ======================== */
-    /* TOP BAR                  */
-    /* ======================== */
+    /* TOP BAR */
     .topbar {
-      padding: 20px 24px;
+      padding: 28px 24px;
       text-align: center;
       background: var(--color-bg-cool);
     }
-
     .topbar a {
       font-family: var(--font-heading);
-      font-size: 20px;
+      font-size: 30px;
       font-weight: 700;
       color: var(--color-text);
       text-decoration: none;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.4px;
     }
+    .topbar a span { color: var(--color-accent); }
 
-    .topbar a span {
-      color: var(--color-accent);
-    }
-
-    /* ======================== */
-    /* HERO                     */
-    /* ======================== */
+    /* HERO */
     .hero {
       background: linear-gradient(180deg, var(--color-bg-cool) 0%, var(--color-bg) 100%);
       padding: 48px 24px 52px;
       text-align: center;
     }
-
-    .hero-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
+    .hero-inner { max-width: var(--max-width); margin: 0 auto; }
     .hero h1 {
       font-family: var(--font-heading);
-      font-size: clamp(26px, 5vw, 40px);
+      font-size: clamp(28px, 5vw, 42px);
       font-weight: 700;
-      line-height: 1.3;
+      line-height: 1.25;
       color: var(--color-text);
       margin-bottom: 24px;
       letter-spacing: -0.5px;
     }
-
     .hero-sub {
       font-size: 19px;
       color: var(--color-text-secondary);
-      max-width: 600px;
+      max-width: 620px;
       margin: 0 auto 36px;
       line-height: 1.7;
     }
-
     .cta-button {
       display: inline-block;
       background: var(--color-accent);
@@ -144,12 +129,10 @@
       border: none;
       cursor: pointer;
     }
-
     .cta-button:hover {
       background: var(--color-accent-hover);
       transform: translateY(-1px);
     }
-
     .cta-note {
       display: block;
       margin-top: 12px;
@@ -157,19 +140,9 @@
       color: var(--color-text-light);
     }
 
-    /* ======================== */
-    /* PROBLEM                  */
-    /* ======================== */
-    .problem {
-      padding: 72px 24px;
-      background: var(--color-bg);
-    }
-
-    .problem-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
+    /* PROBLEM */
+    .problem { padding: 72px 24px; background: var(--color-bg); }
+    .problem-inner { max-width: var(--max-width); margin: 0 auto; }
     .problem h2 {
       font-family: var(--font-heading);
       font-size: clamp(22px, 4vw, 30px);
@@ -177,25 +150,15 @@
       margin-bottom: 28px;
       color: var(--color-text);
     }
-
     .problem p {
       font-size: 17px;
       color: var(--color-text-secondary);
       margin-bottom: 20px;
       line-height: 1.8;
     }
+    .problem .highlight { color: var(--color-text); font-weight: 500; }
 
-    .problem .highlight {
-      color: var(--color-text);
-      font-weight: 500;
-    }
-
-    .problem-questions {
-      list-style: none;
-      padding: 0;
-      margin: 24px 0;
-    }
-
+    .problem-questions { list-style: none; padding: 0; margin: 24px 0; }
     .problem-questions li {
       font-size: 16px;
       color: var(--color-text-secondary);
@@ -203,7 +166,6 @@
       position: relative;
       font-style: italic;
     }
-
     .problem-questions li::before {
       content: "\201C";
       position: absolute;
@@ -213,43 +175,144 @@
       font-style: normal;
     }
 
-    .problem-results {
-      list-style: none;
-      padding: 0;
-      margin: 24px 0 0;
+    /* OWNER STAKES — three P&L lanes */
+    .stakes {
+      padding: 64px 24px;
+      background: var(--color-bg-section);
     }
-
-    .problem-results li {
-      font-size: 16px;
+    .stakes-inner { max-width: var(--max-width); margin: 0 auto; }
+    .stakes h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-align: center;
+      color: var(--color-text);
+    }
+    .stakes .section-sub {
+      text-align: center;
+      font-size: 17px;
       color: var(--color-text-secondary);
-      padding: 8px 0 8px 28px;
-      position: relative;
+      margin-bottom: 44px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .stakes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .stake-card {
+      padding: 28px 24px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      border-top: 4px solid var(--color-accent);
+    }
+    .stake-card h3 {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--color-text);
+    }
+    .stake-card p {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
     }
 
-    .problem-results li::before {
-      content: "";
-      position: absolute;
-      left: 4px;
-      top: 14px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ef4444;
+    /* DEMO STRIP — what the staff sees */
+    .demo {
+      padding: 72px 24px;
+      background: var(--color-bg);
+    }
+    .demo-inner { max-width: var(--max-width); margin: 0 auto; }
+    .demo h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-align: center;
+      color: var(--color-text);
+    }
+    .demo .section-sub {
+      text-align: center;
+      font-size: 17px;
+      color: var(--color-text-secondary);
+      margin-bottom: 44px;
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .demo-card {
+      background: var(--color-bg-section);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .demo-card-head {
+      padding: 14px 20px;
+      background: var(--color-bg-cool);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .demo-card-body { padding: 20px; }
+    .chat-q {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 12px 12px 12px 4px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      font-size: 15px;
+      color: var(--color-text);
+      max-width: 90%;
+    }
+    .chat-q-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-light);
+      margin-bottom: 6px;
+    }
+    .chat-a {
+      background: var(--color-accent-light);
+      border: 1px solid #b3d4ed;
+      border-radius: 12px 12px 4px 12px;
+      padding: 14px 16px;
+      font-size: 15px;
+      color: var(--color-text);
+      margin-left: auto;
+      max-width: 95%;
+    }
+    .chat-a-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-accent-hover);
+      margin-bottom: 6px;
+      text-align: right;
+    }
+    .chat-a strong { font-weight: 600; }
+    .chat-cite {
+      display: block;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--color-text-light);
+      font-family: var(--font-mono);
     }
 
-    /* ======================== */
-    /* HOW IT WORKS             */
-    /* ======================== */
+    /* HOW IT WORKS */
     .how-it-works {
       padding: 72px 24px;
       background: var(--color-bg-section);
     }
-
-    .how-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
+    .how-inner { max-width: var(--max-width); margin: 0 auto; }
     .how-it-works h2 {
       font-family: var(--font-heading);
       font-size: clamp(22px, 4vw, 30px);
@@ -258,24 +321,18 @@
       text-align: center;
       color: var(--color-text);
     }
-
     .how-it-works .section-sub {
       text-align: center;
       font-size: 17px;
       color: var(--color-text-secondary);
       margin-bottom: 48px;
     }
-
     .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 36px;
     }
-
-    .step {
-      text-align: center;
-    }
-
+    .step { text-align: center; }
     .step-number {
       display: inline-flex;
       align-items: center;
@@ -289,7 +346,6 @@
       font-weight: 700;
       margin-bottom: 20px;
     }
-
     .step h3 {
       font-family: var(--font-heading);
       font-size: 20px;
@@ -297,26 +353,18 @@
       margin-bottom: 12px;
       color: var(--color-text);
     }
-
     .step p {
       font-size: 15px;
       color: var(--color-text-secondary);
       line-height: 1.7;
     }
 
-    /* ======================== */
-    /* BENEFITS GRID            */
-    /* ======================== */
+    /* BENEFITS GRID */
     .benefits {
       padding: 72px 24px;
       background: var(--color-bg);
     }
-
-    .benefits-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
+    .benefits-inner { max-width: var(--max-width); margin: 0 auto; }
     .benefits h2 {
       font-family: var(--font-heading);
       font-size: clamp(22px, 4vw, 30px);
@@ -325,20 +373,17 @@
       text-align: center;
       color: var(--color-text);
     }
-
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 32px;
     }
-
     .benefit-card {
       padding: 28px;
       border: 1px solid var(--color-border);
       border-radius: 10px;
       background: var(--color-bg-section);
     }
-
     .benefit-card h3 {
       font-size: 17px;
       font-weight: 600;
@@ -348,33 +393,21 @@
       align-items: center;
       gap: 10px;
     }
-
     .benefit-card h3 svg {
       width: 20px;
       height: 20px;
       color: var(--color-green);
       flex-shrink: 0;
     }
-
     .benefit-card p {
       font-size: 15px;
       color: var(--color-text-secondary);
       line-height: 1.7;
     }
 
-    /* ======================== */
-    /* FAQ                      */
-    /* ======================== */
-    .faq {
-      padding: 72px 24px;
-      background: var(--color-bg-section);
-    }
-
-    .faq-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
+    /* FAQ */
+    .faq { padding: 72px 24px; background: var(--color-bg-section); }
+    .faq-inner { max-width: var(--max-width); margin: 0 auto; }
     .faq h2 {
       font-family: var(--font-heading);
       font-size: clamp(22px, 4vw, 30px);
@@ -383,40 +416,26 @@
       text-align: center;
       color: var(--color-text);
     }
-
     .faq-item {
       margin-bottom: 28px;
       padding-bottom: 28px;
       border-bottom: 1px solid var(--color-border);
     }
-
-    .faq-item:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-
+    .faq-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
     .faq-item h3 {
       font-size: 17px;
       font-weight: 600;
       color: var(--color-text);
       margin-bottom: 10px;
     }
-
     .faq-item p {
       font-size: 16px;
       color: var(--color-text-secondary);
       line-height: 1.7;
     }
 
-    /* ======================== */
-    /* FOUNDER STORY            */
-    /* ======================== */
-    .founder {
-      padding: 72px 24px;
-      background: var(--color-bg);
-    }
-
+    /* FOUNDER STORY */
+    .founder { padding: 72px 24px; background: var(--color-bg); }
     .founder-inner {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -425,14 +444,12 @@
       gap: 40px;
       align-items: start;
     }
-
     .founder-photo {
       width: 200px;
       height: auto;
       border-radius: 12px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     }
-
     .founder-text h2 {
       font-family: var(--font-heading);
       font-size: clamp(20px, 4vw, 26px);
@@ -440,14 +457,12 @@
       margin-bottom: 20px;
       color: var(--color-text);
     }
-
     .founder-text p {
       font-size: 16px;
       color: var(--color-text-secondary);
       margin-bottom: 16px;
       line-height: 1.8;
     }
-
     .founder-text .signature {
       font-weight: 600;
       color: var(--color-text);
@@ -456,7 +471,6 @@
       padding-top: 16px;
       border-top: 1px solid var(--color-border);
     }
-
     .founder-text .signature span {
       display: block;
       font-weight: 400;
@@ -465,14 +479,105 @@
       margin-top: 4px;
     }
 
-    /* ======================== */
-    /* TRUST STRIP              */
-    /* ======================== */
-    .trust {
-      padding: 64px 24px;
-      background: var(--color-bg-cool);
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 72px 24px;
+      background: var(--color-bg);
+      display: none; /* revealed by JS once data loads */
+    }
+    .testimonials-inner { max-width: 1100px; margin: 0 auto; }
+    .testimonials h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-align: center;
+      color: var(--color-text);
+    }
+    .testimonials .section-sub {
+      text-align: center;
+      font-size: 17px;
+      color: var(--color-text-secondary);
+      margin-bottom: 44px;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--color-bg-section);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-quote-mark {
+      width: 28px;
+      height: 28px;
+      color: var(--color-accent);
+      margin-bottom: 14px;
+    }
+    .testimonial-quote {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      flex: 1;
+      white-space: pre-line;
+    }
+    .testimonial-stars {
+      display: flex;
+      gap: 2px;
+      margin-top: 14px;
+    }
+    .testimonial-star {
+      width: 16px;
+      height: 16px;
+      color: #f59e0b;
+    }
+    .testimonial-star.empty { color: #d1d5db; }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+    }
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .testimonial-avatar-fallback {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .testimonial-meta-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .testimonial-meta-sub {
+      font-size: 13px;
+      color: var(--color-text-light);
+      line-height: 1.4;
     }
 
+    /* TRUST STRIP */
+    .trust { padding: 64px 24px; background: var(--color-bg-cool); }
     .trust-inner {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -480,12 +585,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
     }
-
-    .trust-item {
-      text-align: center;
-      padding: 28px 20px;
-    }
-
+    .trust-item { text-align: center; padding: 28px 20px; }
     .trust-icon {
       display: inline-flex;
       align-items: center;
@@ -496,40 +596,30 @@
       background: var(--color-accent-light);
       margin-bottom: 16px;
     }
-
     .trust-icon svg {
       width: 24px;
       height: 24px;
       color: var(--color-accent);
     }
-
     .trust-item h3 {
       font-size: 16px;
       font-weight: 600;
       margin-bottom: 8px;
       color: var(--color-text);
     }
-
     .trust-item p {
       font-size: 14px;
       color: var(--color-text-secondary);
       line-height: 1.7;
     }
 
-    /* ======================== */
-    /* SIGNUP SECTION            */
-    /* ======================== */
+    /* SIGNUP SECTION */
     .signup-section {
       padding: 80px 24px;
       background: var(--color-bg);
       text-align: center;
     }
-
-    .signup-inner {
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
+    .signup-inner { max-width: 480px; margin: 0 auto; }
     .signup-section h2 {
       font-family: var(--font-heading);
       font-size: clamp(22px, 4vw, 30px);
@@ -537,14 +627,12 @@
       margin-bottom: 12px;
       color: var(--color-text);
     }
-
     .signup-section .signup-sub {
       font-size: 17px;
       color: var(--color-text-secondary);
       margin-bottom: 32px;
       line-height: 1.7;
     }
-
     .signup-form {
       background: var(--color-bg-section);
       border: 1px solid var(--color-border);
@@ -552,11 +640,7 @@
       padding: 36px 32px;
       text-align: left;
     }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
+    .form-group { margin-bottom: 20px; }
     .form-group label {
       display: block;
       font-size: 14px;
@@ -564,7 +648,6 @@
       color: var(--color-text);
       margin-bottom: 6px;
     }
-
     .form-group input {
       width: 100%;
       padding: 14px 16px;
@@ -576,17 +659,12 @@
       color: var(--color-text);
       transition: border-color 0.2s;
     }
-
     .form-group input:focus {
       outline: none;
       border-color: var(--color-accent);
       box-shadow: 0 0 0 3px var(--color-accent-light);
     }
-
-    .form-group input::placeholder {
-      color: #a0a8c0;
-    }
-
+    .form-group input::placeholder { color: #a0a8c0; }
     .signup-submit {
       width: 100%;
       padding: 16px;
@@ -601,18 +679,11 @@
       transition: background 0.2s, transform 0.15s;
       margin-top: 4px;
     }
-
     .signup-submit:hover {
       background: var(--color-accent-hover);
       transform: translateY(-1px);
     }
-
-    .signup-submit:disabled {
-      background: #94a3b8;
-      cursor: not-allowed;
-      transform: none;
-    }
-
+    .signup-submit:disabled { background: #94a3b8; cursor: not-allowed; transform: none; }
     .signup-error {
       background: #fef2f2;
       border: 1px solid #fecaca;
@@ -623,7 +694,6 @@
       margin-bottom: 20px;
       display: none;
     }
-
     .signup-success {
       background: #f0fdf4;
       border: 1px solid #bbf7d0;
@@ -634,7 +704,6 @@
       text-align: center;
       display: none;
     }
-
     .signup-trust-list {
       list-style: none;
       padding: 0;
@@ -644,7 +713,6 @@
       gap: 24px;
       flex-wrap: wrap;
     }
-
     .signup-trust-list li {
       font-size: 13px;
       color: var(--color-text-light);
@@ -652,112 +720,54 @@
       align-items: center;
       gap: 6px;
     }
-
     .signup-trust-list li svg {
       width: 16px;
       height: 16px;
       color: var(--color-green);
       flex-shrink: 0;
     }
-
     .signup-legal {
       font-size: 12px;
       color: var(--color-text-light);
       margin-top: 16px;
       text-align: center;
     }
-
-    .signup-legal a {
-      color: var(--color-text-light);
-      text-decoration: underline;
-    }
-
+    .signup-legal a { color: var(--color-text-light); text-decoration: underline; }
     .signup-details {
       font-size: 14px;
       color: var(--color-text-light);
       margin-top: 20px;
     }
 
-    /* ======================== */
-    /* FOOTER                   */
-    /* ======================== */
+    /* FOOTER */
     .footer {
       padding: 32px 24px;
       background: var(--color-bg-cool);
       text-align: center;
       border-top: 1px solid var(--color-border);
     }
+    .footer p { font-size: 13px; color: var(--color-text-light); }
+    .footer a { color: var(--color-text-light); text-decoration: underline; }
 
-    .footer p {
-      font-size: 13px;
-      color: var(--color-text-light);
-    }
-
-    .footer a {
-      color: var(--color-text-light);
-      text-decoration: underline;
-    }
-
-    /* ======================== */
-    /* RESPONSIVE               */
-    /* ======================== */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
-      .hero {
-        padding: 48px 20px 40px;
-      }
-
-      .steps {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .founder-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .founder-photo {
-        margin: 0 auto;
-        width: 160px;
-      }
-
-      .founder-text {
-        text-align: left;
-      }
-
-      .trust-inner {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .trust-item {
-        padding: 20px;
-      }
+      .hero { padding: 48px 20px 40px; }
+      .stakes-grid { grid-template-columns: 1fr; gap: 16px; }
+      .demo-grid { grid-template-columns: 1fr; gap: 20px; }
+      .steps { grid-template-columns: 1fr; gap: 40px; }
+      .benefits-grid { grid-template-columns: 1fr; gap: 20px; }
+      .founder-inner { grid-template-columns: 1fr; text-align: center; }
+      .founder-photo { margin: 0 auto; width: 160px; }
+      .founder-text { text-align: left; }
+      .trust-inner { grid-template-columns: 1fr; gap: 8px; }
+      .trust-item { padding: 20px; }
+      .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
     }
-
     @media (max-width: 480px) {
-      body {
-        font-size: 16px;
-      }
-
-      .hero-sub {
-        font-size: 17px;
-      }
-
-      .cta-button, .signup-submit {
-        display: block;
-        text-align: center;
-        padding: 16px 24px;
-      }
-
-      .signup-form {
-        padding: 28px 20px;
-      }
+      body { font-size: 16px; }
+      .hero-sub { font-size: 17px; }
+      .cta-button, .signup-submit { display: block; text-align: center; padding: 16px 24px; }
+      .signup-form { padding: 28px 20px; }
     }
   </style>
 </head>
@@ -771,16 +781,15 @@
   <!-- ===================== HERO ===================== -->
   <section class="hero">
     <div class="hero-inner">
-      <h1>Your staff asks HIPAA questions every day. Your policies have the answers. Why are you the middleman?</h1>
+      <h1>Stop being your staff's policy helpdesk.</h1>
       <p class="hero-sub">
-        Upload your HIPAA policies to PolicyKeeper. Your team asks questions
-        in plain English. They get instant answers &mdash; with citations to the
-        exact source.
+        A new nurse asks why her schedule shows mids. Two CNAs argue about
+        HIPAA at the desk. PolicyKeeper reads your handbook and answers your
+        staff over text &mdash; from your actual policy, in two seconds,
+        before the question becomes a quit or an OCR call.
       </p>
-      <a href="#signup"
-         class="cta-button"
-         onclick="trackCTA('hero_cta')">
-        Start Free
+      <a href="#signup" class="cta-button" onclick="trackCTA('hero_cta')">
+        Try It Free
       </a>
       <small class="cta-note">50 free credits/month. No credit card required.</small>
     </div>
@@ -789,28 +798,115 @@
   <!-- ================== PROBLEM ================== -->
   <section class="problem">
     <div class="problem-inner">
-      <h2>The HIPAA compliance problem nobody talks about.</h2>
+      <h2>Your handbook has the answer. Your staff can't find it before they ask the wrong person.</h2>
       <p>
-        Your policies exist. They're documented. They're compliant.
-      </p>
-      <p>
-        <span class="highlight">But your staff can't find them.</span> So they ask you. Again.
+        Every shift, every new hire, every walk-up at the desk &mdash; the
+        same questions land on a charge nurse, a practice administrator,
+        or you:
       </p>
       <ul class="problem-questions">
-        <li>What's the policy on releasing records to family members?</li>
-        <li>How long do we have to report a breach?</li>
-        <li>Can I access patient records from home?</li>
+        <li>Can I confirm to a family member which unit their relative is on?</li>
+        <li>What shift am I actually contracted for?</li>
+        <li>Did I just commit a HIPAA violation?</li>
+        <li>If I'm cross-trained out of my role, what's in my scope?</li>
+        <li>I just had a needlestick &mdash; what's the testing schedule?</li>
       </ul>
       <p>
-        These questions have answers &mdash; in your policies. But searching through
-        binders, shared drives, and email attachments takes time nobody has.
+        <span class="highlight">The answers are in your employee handbook
+        and your HIPAA policies.</span>
+        But your CNA doesn't have a binder at 11pm. Your new hire doesn't
+        have it at week 4. And different supervisors give different
+        answers &mdash; that's how a HIPAA argument lands at the nursing
+        station, in front of patients.
       </p>
-      <ul class="problem-results">
-        <li>Staff interrupt you instead of finding answers themselves</li>
-        <li>Different people give different answers to the same question</li>
-        <li>Audit prep becomes a scramble for documentation</li>
-        <li>Training gaps create compliance risk</li>
-      </ul>
+    </div>
+  </section>
+
+  <!-- ================== OWNER STAKES ================== -->
+  <section class="stakes">
+    <div class="stakes-inner">
+      <h2>Why it matters more than you think.</h2>
+      <p class="section-sub">
+        Every "quick question" your staff asks the charge nurse isn't really quick.
+        Three things it's costing the business:
+      </p>
+      <div class="stakes-grid">
+        <div class="stake-card">
+          <h3>Your retention</h3>
+          <p>
+            Replacing a nurse costs <strong>$50K–$90K</strong>. Most early
+            departures trace back to a policy ambiguity that bred mistrust
+            in week 4. The handbook had the answer. Nobody could pull it
+            up in real time.
+          </p>
+        </div>
+        <div class="stake-card">
+          <h3>Your compliance budget</h3>
+          <p>
+            HIPAA breach penalties run <strong>$137 to $68,928 per
+            violation</strong>, capped at $2M per type per year. One
+            patient phone call to OCR triggers an investigation. A staff
+            argument at the desk is one tip away from being your problem.
+          </p>
+        </div>
+        <div class="stake-card">
+          <h3>Your continuity</h3>
+          <p>
+            First shift, third shift, weekend, traveler, agency. Different
+            staff, same handbook. PolicyKeeper gives all of them the same
+            answer from the same source &mdash; including the contingent-staff
+            handoff your travel nurses don't currently get in writing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== DEMO STRIP ================== -->
+  <section class="demo">
+    <div class="demo-inner">
+      <h2>What your staff sees when they ask.</h2>
+      <p class="section-sub">
+        Two real questions, answered from your handbook in seconds.
+      </p>
+      <div class="demo-grid">
+
+        <div class="demo-card">
+          <div class="demo-card-head">CNA at the desk &middot; 11:02 PM</div>
+          <div class="demo-card-body">
+            <div class="chat-q-label">She texts PolicyKeeper:</div>
+            <div class="chat-q">"Can I confirm to a family member which unit her dad is on?"</div>
+            <div class="chat-a-label">PolicyKeeper answers:</div>
+            <div class="chat-a">
+              <strong>Yes, with two checks first.</strong> Have the family
+              member volunteer the patient's full name. Verify the patient
+              has <strong>no privacy hold / no-info status</strong> on
+              their record. Confirm the unit only &mdash; do not volunteer
+              additional information.
+              <span class="chat-cite">Source: Facility HIPAA Policy §5.2 (Facility Directory Disclosures)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-card">
+          <div class="demo-card-head">New nurse &middot; week 4</div>
+          <div class="demo-card-body">
+            <div class="chat-q-label">She texts PolicyKeeper:</div>
+            <div class="chat-q">"My offer letter says 0700–1930. Why am I scheduled for mids?"</div>
+            <div class="chat-a-label">PolicyKeeper answers:</div>
+            <div class="chat-a">
+              Your offer letter governs your <strong>contracted shift</strong>.
+              Mid-shift assignments are <strong>cross-coverage during
+              orientation only</strong>; post-orientation, deviations
+              require written manager approval. To formally raise a
+              concern, contact your director per the <strong>schedule
+              dispute procedure</strong>.
+              <span class="chat-cite">Source: Employee Handbook §6.4 (Shift Assignment &amp; Cross-Coverage)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -824,24 +920,27 @@
           <div class="step-number">1</div>
           <h3>Upload your policies</h3>
           <p>
-            Employee handbooks, HIPAA procedures, compliance manuals &mdash;
-            PDF, Word, or text. Each upload uses 2 credits.
+            Employee handbook, HIPAA policies, scope-of-practice docs,
+            sharps-injury protocol &mdash; PDF or Word. Each upload uses
+            2 credits.
           </p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
-          <h3>Your team asks questions</h3>
+          <h3>Your staff asks questions</h3>
           <p>
-            Natural language, just like asking a colleague: "What's our
-            policy on accessing records remotely?"
+            Plain English, the way they'd ask the charge nurse:
+            "Can I confirm which unit her dad is on?" Each query uses
+            1 credit.
           </p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
           <h3>PolicyKeeper answers</h3>
           <p>
-            Instant answers with citations to the exact source document.
-            No more "I think it's in the handbook somewhere." Each query uses 1 credit.
+            Instant answers from your actual policy, with a citation to
+            the section it came from. No "ask the charge nurse." No two
+            CNAs arguing about HIPAA at the desk.
           </p>
         </div>
       </div>
@@ -851,49 +950,49 @@
   <!-- ================ BENEFITS GRID ================ -->
   <section class="benefits">
     <div class="benefits-inner">
-      <h2>Built for healthcare compliance.</h2>
+      <h2>Built for the bedside, not the binder.</h2>
       <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+            Works on a phone
+          </h3>
+          <p>Your nurse isn't at a desk. PolicyKeeper works in any browser, any phone, between rooms, in the parking lot. If your staff can text, they can use it.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+            Citations on every answer
+          </h3>
+          <p>Every answer points back to the exact policy section. Useful when a staffer pushes back &mdash; and useful in writing if HR, legal, or OCR ever asks how a decision was reached.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+            Across all three shifts
+          </h3>
+          <p>The HIPAA question lands at 11pm. The needlestick question lands at 3am. The schedule question lands at week 4. PolicyKeeper answers all of them from the same handbook.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+            Same answer every time
+          </h3>
+          <p>Charge nurse. Senior CNA. Practice administrator. Three different answers to the same HIPAA question is how OCR investigations start. PolicyKeeper gives all three the same answer from the same source.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+            Update once, propagated everywhere
+          </h3>
+          <p>Policy revised after an OCR settlement? Re-upload. The new language takes over instantly. No re-distributing PDFs to a staff that won't open them.</p>
+        </div>
         <div class="benefit-card">
           <h3>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
             Database-level data isolation
           </h3>
-          <p>Your data is stored in a completely separate database. Not shared with other organizations. Not used for AI training. Just yours.</p>
-        </div>
-        <div class="benefit-card">
-          <h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-            Source citations on every answer
-          </h3>
-          <p>Every answer shows exactly where it came from in your documents. Your staff can verify the answer themselves in seconds.</p>
-        </div>
-        <div class="benefit-card">
-          <h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-            Available 24/7
-          </h3>
-          <p>Night shift has a question at 2am? PolicyKeeper doesn't take breaks. Your team gets answers whenever they need them.</p>
-        </div>
-        <div class="benefit-card">
-          <h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-            No training required
-          </h3>
-          <p>If your staff can send a text message, they can use PolicyKeeper. Natural language questions, not complex search interfaces.</p>
-        </div>
-        <div class="benefit-card">
-          <h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-            Document version control
-          </h3>
-          <p>Upload a new policy version and it replaces the old one. No more "which version is current?" confusion.</p>
-        </div>
-        <div class="benefit-card">
-          <h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-            Role-based access control
-          </h3>
-          <p>Control who can search what with Admin, Manager, Employee, and Viewer roles. The right people see the right documents.</p>
+          <p>Your policies are stored in a database that's yours alone. Not shared with other facilities. Not used to train AI models. Just yours.</p>
         </div>
       </div>
     </div>
@@ -905,28 +1004,38 @@
       <h2>Questions? We've got answers.</h2>
 
       <div class="faq-item">
-        <h3>Is my data secure?</h3>
-        <p>Yes. Each organization's data is completely isolated at the database level &mdash; not just the UI. Your policies are never shared with other customers or used to train AI models.</p>
+        <h3>We already have a 200-page handbook and HIPAA policies. Why do we need this?</h3>
+        <p>You have the policies. Your staff doesn't &mdash; not at the bedside, not at the desk, not at 11pm. PolicyKeeper makes the policies answer the question instead of the charge nurse or the practice administrator.</p>
       </div>
 
       <div class="faq-item">
-        <h3>This is for policy documents, not patient records?</h3>
-        <p>Correct. PolicyKeeper is designed for compliance policies, employee handbooks, procedures, and training materials. It is not a medical records system and should not be used to store PHI.</p>
+        <h3>Is this for PHI or for policy?</h3>
+        <p><strong>Policy only.</strong> PolicyKeeper is designed for compliance policies, employee handbooks, scope-of-practice documents, and protocols. It is not an EMR and should never be used to store PHI.</p>
       </div>
 
       <div class="faq-item">
         <h3>Will my staff actually use it?</h3>
-        <p>PolicyKeeper uses natural language &mdash; staff ask questions the way they'd ask a colleague. If they can send a text message, they can use PolicyKeeper. No training required.</p>
+        <p>If they can text, they can use PolicyKeeper. Plain-English questions, no menus, no app to install. The interface is closer to a group chat than to a clinical system &mdash; intentionally low-friction.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is this a HIPAA compliance tool?</h3>
+        <p>No &mdash; it's a "your facility's policy" tool. PolicyKeeper answers from your uploaded HIPAA policies and handbook, not from regulatory websites. Where your standards exceed HIPAA, your stricter language is what your staff sees.</p>
       </div>
 
       <div class="faq-item">
         <h3>How accurate are the answers?</h3>
-        <p>PolicyKeeper only answers from your uploaded documents, and every answer includes a citation to the source. It doesn't make things up or pull from the internet. Your staff can verify any answer in seconds.</p>
+        <p>PolicyKeeper only answers from documents you've uploaded, and every answer cites the source section. It doesn't make things up and it doesn't pull from the internet. If a policy doesn't cover the question, PolicyKeeper says so.</p>
       </div>
 
       <div class="faq-item">
-        <h3>We already have SharePoint / Google Drive.</h3>
-        <p>You can store policies there. You can't ask them questions. PolicyKeeper adds the Q&amp;A layer your existing tools don't have.</p>
+        <h3>What about Spanish-speaking staff?</h3>
+        <p>Staff can ask in Spanish and PolicyKeeper answers in Spanish &mdash; from the same English policies. The citation still points to the original section.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is my data secure?</h3>
+        <p>Yes. Each facility's data is isolated at the database level &mdash; not just in the UI. Your policies are never shared with other facilities and never used to train AI models.</p>
       </div>
     </div>
   </section>
@@ -941,28 +1050,37 @@
            height="267"
            loading="lazy">
       <div class="founder-text">
-        <h2>Built by someone who understands compliance.</h2>
+        <h2>Built by someone who's spent a career making information findable.</h2>
         <p>
-          I'm Richard Asp. I'm 78 years old, and I've spent most of my
-          career building technology for businesses. I started and sold a
-          web hosting company, spent nearly a decade at cPanel, and have
-          seen firsthand how hard it is for businesses to keep their teams
-          aligned on policies and procedures.
+          I'm Richard Asp. I started and sold a web hosting company, spent
+          nearly a decade at cPanel, and have spent most of my career
+          building tools that help businesses run.
         </p>
         <p>
-          Healthcare practices deal with this every day. Your compliance
-          policies are thorough, but they're only useful if your staff can
-          actually find the answers when they need them.
+          Healthcare CEOs and practice administrators I talk to all say the
+          same thing: the policies are written and reviewed, the handbook
+          is fine, but their staff is at the bedside and the answer they
+          need is buried in a 200-page binder nobody opens. That's the gap
+          PolicyKeeper closes.
         </p>
         <p>
-          PolicyKeeper is a straightforward tool: upload your documents,
-          and your people get real answers with citations. That's it.
+          Upload your handbook. Your staff asks. They get an answer with a
+          citation. That's it.
         </p>
         <div class="signature">
           Richard Asp
           <span>Founder, PolicyKeeper &middot; Sarasota, Florida</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ================== TESTIMONIALS ================== -->
+  <section class="testimonials" id="testimonialsSection">
+    <div class="testimonials-inner">
+      <h2>What customers say.</h2>
+      <p class="section-sub">Real owners using PolicyKeeper today.</p>
+      <div class="testimonials-grid" id="testimonialsGrid"></div>
     </div>
   </section>
 
@@ -977,9 +1095,8 @@
         </div>
         <h3>Complete data isolation.</h3>
         <p>
-          Every organization's documents are stored in a completely separate
-          database. Your information is never shared and never used for
-          AI training.
+          Each company's documents are stored in a separate database.
+          Your handbook is never shared and never used for AI training.
         </p>
       </div>
       <div class="trust-item">
@@ -990,8 +1107,8 @@
         </div>
         <h3>Free to start.</h3>
         <p>
-          50 free credits every month. Upload documents and ask questions
-          to see if it works for your practice before you spend a dime.
+          50 free credits every month. Upload, ask a few questions, see if
+          it works for your shop before you spend a dime.
         </p>
       </div>
       <div class="trust-item">
@@ -1002,8 +1119,8 @@
         </div>
         <h3>No credit card. No sales call.</h3>
         <p>
-          Sign up with your email. Start uploading. If it's not for your
-          practice, walk away. No strings attached.
+          Sign up with your email. Start uploading. If it's not for you,
+          walk away. No strings attached.
         </p>
       </div>
     </div>
@@ -1012,9 +1129,9 @@
   <!-- ================== SIGNUP SECTION ================== -->
   <section class="signup-section" id="signup">
     <div class="signup-inner">
-      <h2>Stop being the policy search engine.</h2>
+      <h2>Stop being the policy helpdesk.</h2>
       <p class="signup-sub">
-        Upload your HIPAA policies and see what your team
+        Upload your handbook and HIPAA policies and see what your staff
         can find on their own. Create your free account below.
       </p>
 
@@ -1023,7 +1140,7 @@
 
         <div class="form-group">
           <label for="email">Email address</label>
-          <input type="email" id="email" placeholder="you@practice.com" required autocomplete="email">
+          <input type="email" id="email" placeholder="you@yourcompany.com" required autocomplete="email">
         </div>
 
         <div class="form-group">
@@ -1136,7 +1253,6 @@
         formEl.style.display = 'none';
         successEl.style.display = 'block';
 
-        // Redirect via /impersonate route which stores token and goes to dashboard
         var token = data.token;
         if (token) {
           token = token.replace(/^Bearer\s+/i, '');
@@ -1164,7 +1280,54 @@
           if (e.key === 'Enter') handleSignup();
         });
       });
+      loadTestimonials();
     });
+
+    /* ===================== TESTIMONIALS ===================== */
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function(c) {
+        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+      });
+    }
+
+    function renderStars(n) {
+      var html = '<div class="testimonial-stars">';
+      for (var i = 1; i <= 5; i++) {
+        var cls = i <= n ? '' : 'empty';
+        html += '<svg class="testimonial-star ' + cls + '" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
+      }
+      return html + '</div>';
+    }
+
+    function renderTestimonialCard(t) {
+      var initials = t.authorName.split(' ').map(function(w){return w[0];}).join('').toUpperCase().slice(0,2);
+      var avatar = t.photoUrl
+        ? '<img src="' + escapeHtml(t.photoUrl) + '" alt="' + escapeHtml(t.authorName) + '" class="testimonial-avatar" loading="lazy" width="44" height="44">'
+        : '<div class="testimonial-avatar-fallback">' + escapeHtml(initials) + '</div>';
+      var stars = t.rating ? renderStars(t.rating) : '';
+      var subParts = [t.authorTitle, t.authorCompany].filter(Boolean);
+      var subline = subParts.length ? '<div class="testimonial-meta-sub">' + escapeHtml(subParts.join(', ')) + '</div>' : '';
+      return '<div class="testimonial-card">' +
+        '<svg class="testimonial-quote-mark" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/></svg>' +
+        '<p class="testimonial-quote">' + escapeHtml(t.quote) + '</p>' +
+        stars +
+        '<div class="testimonial-author">' + avatar +
+        '<div><div class="testimonial-meta-name">' + escapeHtml(t.authorName) + '</div>' + subline + '</div>' +
+        '</div></div>';
+    }
+
+    async function loadTestimonials() {
+      try {
+        var res = await fetch('https://policykeeper.ai/api/testimonials');
+        if (!res.ok) return;
+        var data = await res.json();
+        var list = (data.testimonials || []).slice(0, 3);
+        if (list.length === 0) return;
+        var grid = document.getElementById('testimonialsGrid');
+        grid.innerHTML = list.map(renderTestimonialCard).join('');
+        document.getElementById('testimonialsSection').style.display = 'block';
+      } catch (e) { /* fail silently — section stays hidden */ }
+    }
   </script>
 
   <!-- ================== FOOTER ================== -->
